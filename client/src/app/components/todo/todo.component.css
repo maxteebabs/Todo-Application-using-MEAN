@@ -1,0 +1,10 @@
+.selected, .active{
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .red{
+    color: red
+  }
+  .green{
+    color:green
+  }

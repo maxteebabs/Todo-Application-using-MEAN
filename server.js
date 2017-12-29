@@ -6,14 +6,14 @@ var index = require('./routes/index');
 var todo = require('./routes/tasks');
 
 var app = express();
-var port = 4000;
+var port = 5002;
 //view engine
 app.set('views', path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 //set static folder
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 //body parser
 app.use(bodyParser.json());

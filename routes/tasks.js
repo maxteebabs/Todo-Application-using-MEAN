@@ -5,7 +5,7 @@ var mongojs = require('mongojs');
 var db = mongojs('mongodb://root:admin@ds137256.mlab.com:37256/maxtee_todo_db', ['todo'])
 
 //get all todos
-router.get('/', function(req, res, next){
+router.get('/', function(req, res, next){console.log(res);
     db.todo.find(function(err, todos) {
         if(err){
             res.send(err);
@@ -35,7 +35,7 @@ router.post('/todo', function(req, res, next){
             if(err){
                 res.send(err);
             }
-            res.json(ttodoask);
+            res.json(todo);
         });
     }
 });
@@ -57,7 +57,7 @@ router.put('/:id', function(req, res, next){
         req.statusCode(400);
         req.json({"error": "The name and the description is compulsory"});
     }else{
-        db.todo.update({_id:mongojs.ObjectId(req.params.id)},todo, {}, function(err, todo) {
+        db.todo.save(todo, function(err, todo) {
             if(err){
                 res.send(err);
             }

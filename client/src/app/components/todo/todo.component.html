@@ -1,0 +1,109 @@
+<div>
+<div class="jumbotron text-center">
+    <h1>My Task Planner</h1>
+    <p>Resize this responsive page to see the effect!</p> 
+</div>
+        
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="menu">
+                <h3>Task Reminder</h3>
+                <ul>
+                    <li *ngFor="let todo of todos"><a>{{ todo.name }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="">
+                <h4> <a href="#" (click)="createBtn()" [class.active]= "isCreate">Create Task</a> | 
+                 <a href="#" (click)="viewBtn()" [class.active]= "isView">View Tasks</a> </h4>
+            </div><hr />
+            
+            <form action="" id="" class="form-vertical" (submit)="addTodo($event)" *ngIf="isCreate">
+                <h3>Create Todo</h3>
+                <div class="form-group">
+                    <label for="title" class="control-label">Title:</label>
+                    <input class="form-control" name="title" [(ngModel)]="title">
+                    <span>{{title | uppercase}}</span>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label">Description:</label>
+                    <textarea class="form-control" name="description" [(ngModel)]="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="control-label">Date:</label>
+                    <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control datepicker" [(ngModel)]="date" name="date">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+            <form action="" id="" class="form-vertical" (submit)="updateTodo($event)" *ngIf="isEdit">
+                    <h3>Update Todo</h3>
+                    <div class="form-group">
+                        <label for="title" class="control-label">Title:</label>
+                        <input class="form-control" name="title" [(ngModel)]="title">
+                        <input type="hidden" class="form-control" name="id" [(ngModel)]="id">
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="control-label">Description:</label>
+                        <textarea class="form-control" name="description" [(ngModel)]="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="control-label">Date:</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input type="text" class="form-control datepicker" [(ngModel)]="date" name="date">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            <div class="row" *ngIf="isView">
+                <div class="col-sm-12">
+                    <h2>My List of Todos</h2>
+                    <ol>
+                        <li *ngFor="let todo of todos"
+                            (click)="selectedTodo(todo)" 
+                            [class.selected]="todo.name === selected_todo_name">
+                            
+                            <h3>{{ todo.name }}</h3>
+                            <p>{{ todo.description }}</p>
+                            <p><span class="green">{{ todo.date }}</span></p>
+                            <span class="clearfix">
+                                <a href="javascript:void(0);"
+                                    class="pull-right" class="" 
+                                    (click)= "editTodo(todo)">Edit</a> |
+                                <a href="javascript:void(0);"
+                                class="pull-right" class="red" 
+                                (click)= "deleteTodo(todo._id)">Delete</a></span>
+                            <hr />
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-md-6">
+                    <h2>List of People I know</h2>
+                    <ul>
+                        <li *ngFor="let person of people" 
+                            (click)="selectedPerson(person)" 
+                            [class.selected]="person.name === selected_person ">
+                            <span class="badge">{{person.id}}</span> {{person.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <app-todo-detail [person]="person_obj"></app-todo-detail>
+                </div>
+            </div>             -->
+        </div>
+    </div>
+</div>
+</div>
+      

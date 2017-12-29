@@ -3,11 +3,8 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
+  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="bootstrap-datepicker.min.css">
   <style>
       body{
           font-size: 14px;
@@ -36,64 +33,8 @@
 </head>
 <body>
 
-<div class="jumbotron text-center">
-  <h1>My Task Planner</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-        <div class="menu">
-            <h3>Task Reminder</h3>
-            <ul>
-                <li><a>Hello you</a></li>
-                <li><a>Hello you</a></li>
-                <li><a>Hello you</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        <div class="">
-           <h2> <a>Create Task</a> |
-            <a>View Tasks</a></h2>
-        </div><hr />
-      <h3>Create Task</h3>
-      <form action="" id="" class="form-vertical">
-            <div class="form-group">
-                <label for="title" class="control-label">Title:</label>
-                <input class="form-control" name="title">
-            </div>
-            <div class="form-group">
-                <label for="description" class="control-label">Description:</label>
-                <textarea class="form-control" name="description"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="date" class="control-label">Date:</label>
-                <div class="input-group date" data-provide="datepicker">
-                    <input type="text" class="form-control datepicker">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-      </form>
-    </div>
-  </div>
-</div>
 
-<script src="bootstrap-datepicker.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.datepicker').datepicker({
-            todayBtn: "linked",
-            orientation: "top auto",
-            daysOfWeekHighlighted: "0"
-        });
-    })
-</script>
+
 </body>
 </html>
 <!-- #845EC2

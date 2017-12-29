@@ -13,5 +13,10 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "mongojs": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/chokidar": "^1.7.4",
+    "gulp": "^3.9.1",
+    "gulp-ng-build": "0.0.3"
   }
 }
